@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Lojinha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .carrinho {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .produtos {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .produto {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .produto:hover {
+            transform: scale(1.05);
+        }
+
+        .produto img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .produto button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .produto button:hover {
+            background-color: #218838;
+        }
+
+        .aviso {
+            display: none;
+            background-color: green;
+            color: white;
+            padding: 10px;
+            margin-top: 15px;
+            width: 250px;
+            text-align: center;
+            border-radius: 5px;
+            position: fixed;
+            top: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lojinha Fácil</h1>
+    <div class="carrinho">Itens no carrinho: <span id="carrinho">0</span></div>
+
+    <div class="produtos">
+        <div class="produto">
+            <img src="https://via.placeholder.com/100" alt="Produto 1">
+            <h3>Produto 1</h3>
+            <button onclick="comprar()">Adicionar ao Carrinho</button>
+        </div>
+        <div class="produto">
+            <img src="https://via.placeholder.com/100" alt="Produto 2">
+            <h3>Produto 2</h3>
+            <button onclick="comprar()">Adicionar ao Carrinho</button>
+        </div>
+        <div class="produto">
+            <img src="https://via.placeholder.com/100" alt="Produto 3">
+            <h3>Produto 3</h3>
+            <button onclick="comprar()">Adicionar ao Carrinho</button>
+        </div>
+        <div class="produto">
+            <img src="https://via.placeholder.com/100" alt="Produto 4">
+            <h3>Produto 4</h3>
+            <button onclick="comprar()">Adicionar ao Carrinho</button>
+        </div>
+    </div>
+
+    <div id="aviso" class="aviso">Item adicionado com sucesso!</div>
+
+    <script>
+        var quantidadeDeItens = 0;
+
+        function comprar() {
+            // Atualiza quantidade
+            quantidadeDeItens += 1;
+            document.getElementById("carrinho").innerText = quantidadeDeItens;
+
+            // Mostra aviso
+            var aviso = document.getElementById("aviso");
+            aviso.style.display = "block";
+
+            // Desaparece após 3 segundos
+            setTimeout(function() {
+                aviso.style.display = "none";
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
